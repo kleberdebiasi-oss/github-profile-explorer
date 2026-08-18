@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useGitHub } from './context/GitHubContext.jsx'
 import RepositoryList from './RepositoryList.jsx'
+import heroImage from './assets/hero.png'
 
 function App() {
   const [username, setUsername] = useState('')
@@ -13,12 +14,18 @@ function App() {
 
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-16 text-slate-100">
-      <section className="mx-auto max-w-2xl">
+      <section className="relative mx-auto max-w-2xl">
+        <img
+          className="pointer-events-none absolute -right-10 -top-8 hidden w-44 opacity-75 sm:block"
+          src={heroImage}
+          alt=""
+        />
+
         <p className="mb-3 text-sm font-semibold tracking-[0.2em] text-cyan-400 uppercase">
           GitHub Profile Explorer
         </p>
 
-        <h1 className="text-4xl font-bold sm:text-5xl">
+        <h1 className="max-w-md text-4xl font-bold sm:text-5xl">
           Encontre perfis e repositórios no GitHub
         </h1>
 
@@ -98,6 +105,24 @@ function App() {
 
         {user && <RepositoryList repositories={repositories} />}
       </section>
+
+      <footer className="mt-16 border-t border-slate-800 pt-6 text-center text-sm text-slate-400">
+        <p>
+          Desenvolvido por{' '}
+          <a
+            className="text-cyan-400 hover:underline"
+            href="https://github.com/kleberdebiasi-oss"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Kleber De Biasi
+          </a>
+        </p>
+
+        <p className="mt-2">
+          Dados fornecidos pela API pública do GitHub · {new Date().getFullYear()}
+        </p>
+      </footer>
     </main>
   )
 }
