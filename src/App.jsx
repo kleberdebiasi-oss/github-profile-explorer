@@ -120,6 +120,13 @@ function App() {
         <p className="mt-2">
           Dados fornecidos pela API pública do GitHub · {new Date().getFullYear()}
         </p>
+
+        <a
+          className="mt-4 inline-block rounded-lg border border-slate-700 px-4 py-2 font-medium text-slate-300 transition hover:border-cyan-400 hover:text-cyan-400"
+          href="mailto:fictissioprojetoreac@gmail.com?subject=Relato%20de%20problema%20-%20GitHub%20Profile%20Explorer"
+        >
+          Relatar um problema
+        </a>
       </footer>
     </main>
   )
