@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useGitHub } from './context/GitHubContext.jsx'
 import RepositoryList from './RepositoryList.jsx'
 import heroImage from './assets/hero.png'
-
 function App() {
   const [username, setUsername] = useState('')
   const { user, repositories, loading, error, searchUser } = useGitHub()
@@ -15,12 +14,11 @@ function App() {
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-16 text-slate-100">
       <section className="relative mx-auto max-w-2xl">
-        <img
-          className="pointer-events-none absolute -right-10 -top-8 hidden w-44 opacity-75 sm:block"
-          src={heroImage}
-          alt=""
-        />
-
+  <img
+    className="pointer-events-none absolute -right-10 -top-8 hidden w-44 opacity-75 sm:block"
+    src={heroImage}
+    alt=""
+  />
         <p className="mb-3 text-sm font-semibold tracking-[0.2em] text-cyan-400 uppercase">
           GitHub Profile Explorer
         </p>
