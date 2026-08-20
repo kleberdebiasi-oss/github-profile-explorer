@@ -72,5 +72,3 @@ Para gerar a versão de produção:
 ```bash
 npm run build
 ```
-
-## Estr
