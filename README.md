@@ -30,7 +30,7 @@ Aplicação web em React para buscar usuários do GitHub, visualizar informaçõ
 Clone o repositório:
 
 ```bash
-git clone URL_DO_SEU_REPOSITORIO
+git clone https://github.com/kleberdebiasi-oss/github-profile-explorer.git
 ```
 
 Acesse a pasta do projeto:
