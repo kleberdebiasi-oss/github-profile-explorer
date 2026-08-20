@@ -1,24 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+const sorters = {
+  'stars-asc': (first, second) => first.stargazers_count - second.stargazers_count,
+  name: (first, second) => first.name.localeCompare(second.name),
+  updated: (first, second) => new Date(second.updated_at) - new Date(first.updated_at),
+  'stars-desc': (first, second) => second.stargazers_count - first.stargazers_count,
+}
+
 function RepositoryList({ repositories }) {
   const [sortBy, setSortBy] = useState('stars-desc')
-
-  const sortedRepositories = [...repositories].sort((firstRepository, secondRepository) => {
-    if (sortBy === 'stars-asc') {
-      return firstRepository.stargazers_count - secondRepository.stargazers_count
-    }
-
-    if (sortBy === 'name') {
-      return firstRepository.name.localeCompare(secondRepository.name)
-    }
-
-    if (sortBy === 'updated') {
-      return new Date(secondRepository.updated_at) - new Date(firstRepository.updated_at)
-    }
-
-    return secondRepository.stargazers_count - firstRepository.stargazers_count
-  })
+  const sortedRepositories = [...repositories].sort(sorters[sortBy])
 
   return (
     <section className="mt-10">
