@@ -27,7 +27,7 @@ export function GitHubProvider({ children }) {
       const [userResponse, repositoriesResponse] = await Promise.all([
         fetch(`https://api.github.com/users/${normalizedUsername}`),
         fetch(
-          `https://api.github.com/users/${normalizedUsername}/repos?per_page=100`,
+          `https://api.github.com/users/${normalizedUsername}/repos?type=owner&sort=updated&direction=desc&per_page=100`,
         ),
       ])
 

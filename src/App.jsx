@@ -118,7 +118,8 @@ function App() {
         </p>
 
         <p className="mt-2">
-          Dados fornecidos pela API pública do GitHub · {new Date().getFullYear()}
+          Fundamentos ao Desenvolvimento Web · Dados fornecidos pela API pública do GitHub ·{' '}
+          {new Date().getFullYear()}
         </p>
 
         <a
