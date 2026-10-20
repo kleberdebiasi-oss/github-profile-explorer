@@ -13,6 +13,16 @@ Aplicação web em React para buscar usuários do GitHub, visualizar informaçõ
 - Estados de carregamento, erro e lista vazia
 - Layout responsivo
 - Testes automatizados da listagem e ordenação de repositórios
+- Registro automático de cada resposta do GitHub na API de logs da Unoesc
+- Painel para visualizar, atualizar e excluir logs individualmente
+
+## Avaliação A1.2 — Parte 2
+
+Antes de buscar um usuário, informe e salve sua matrícula Unoesc no topo da página. Ela fica armazenada apenas no navegador usado e é enviada à API do trabalho para identificar seus registros. A integração utiliza as rotas da [documentação da API de logs](https://www.piway.com.br/unoesc/api/doc.html).
+
+Cada consulta de perfil, listagem de repositórios e detalhe de repositório registra seu retorno (inclusive respostas de erro HTTP). Falhas no serviço de logs geram um aviso sem impedir a exibição dos dados do GitHub. O botão **Ver logs de consultas**, disponível em todas as páginas, permite listar, atualizar e excluir cada registro. A listagem é atualizada quando novos logs são registrados. As operações da própria API de logs não geram novos logs.
+
+Para verificar manualmente: busque um usuário, abra um repositório, confira os três registros no painel e exclua um deles. Reabra o painel para confirmar a exclusão no servidor.
 
 ## Tecnologias
 

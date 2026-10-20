@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useLogs } from '../context/LogsContext.jsx'
 
 function RepositoryDetails() {
+  const { fetchGitHub } = useLogs()
   const { owner, repositoryName } = useParams()
   const [repository, setRepository] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -13,15 +15,11 @@ function RepositoryDetails() {
         setLoading(true)
         setError('')
 
-        const response = await fetch(
-          `https://api.github.com/repos/${owner}/${repositoryName}`,
+        const data = await fetchGitHub(
+          `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repositoryName)}`,
+          'Detalhar repositório',
+          (result) => `Repositório: ${result.full_name}; estrelas: ${result.stargazers_count}`,
         )
-
-        if (!response.ok) {
-          throw new Error('Repositório não encontrado.')
-        }
-
-        const data = await response.json()
         setRepository(data)
       } catch (error) {
         setError(error.message)
@@ -31,7 +29,7 @@ function RepositoryDetails() {
     }
 
     loadRepository()
-  }, [owner, repositoryName])
+  }, [owner, repositoryName, fetchGitHub])
 
   if (loading) {
     return (
